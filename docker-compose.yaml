@@ -1,0 +1,14 @@
+services:
+
+  ftp-to-web-static-hosting:
+    
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ftp-to-web-static-hosting
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/app
+    env_file:
+      - dev.env
