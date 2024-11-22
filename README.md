@@ -1,6 +1,8 @@
 # FTP to web static
 🚀 Simple static files hosting server, with FTP 💾 as a backend.
 
+![latest version build](https://github.com/tobiasz-gleba/ftp-to-web-static-hosting/actions/workflows/docker-publish.yml/badge.svg)
+
 ### 🛫 How to use it?
 
 1. Place your static files into FTP server.
