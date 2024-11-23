@@ -16,14 +16,14 @@ COPY main.go main.go
 # # # Build the Go application
 RUN go build -o ftp-web-server.exe
 
-# Expose the application's port
-EXPOSE 80
-
 ## Step 2: Runtime stage
 FROM scratch
 
 # Copy only the binary from the build stage to the final image
-COPY --from=build /app/ftp-web-server.exe /
+COPY --from=build /app/ftp-web-server.exe /ftp-web-server.exe
+
+# Expose the application's port
+EXPOSE 80
 
 # Run the executable
-CMD ["./ftp-web-server.exe"]
+CMD ["/ftp-web-server.exe"]
