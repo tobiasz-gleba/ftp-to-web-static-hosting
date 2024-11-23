@@ -1,5 +1,5 @@
 # Start with the official Go image
-FROM golang:1.23.3
+FROM golang:1.23.3 as build
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -18,6 +18,12 @@ RUN go build -o ftp-web-server.exe
 
 # Expose the application's port
 EXPOSE 80
+
+## Step 2: Runtime stage
+FROM scratch
+
+# Copy only the binary from the build stage to the final image
+COPY --from=build /app/ftp-web-server.exe /
 
 # Run the executable
 CMD ["./ftp-web-server.exe"]
