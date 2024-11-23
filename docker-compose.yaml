@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      target: build
+      # target: build
     container_name: ftp-to-web-static-hosting
     ports:
       - "8080:80"
